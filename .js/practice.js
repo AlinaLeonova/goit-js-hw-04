@@ -263,16 +263,151 @@
 // customerA.addItem('Car', 1000, 'black');
 
 
-
+//? ------------------ CALLBACK 
 
 const say = function (name, cb) {
     return cb(name);
 }
 const hi = (user) => `Hi, ${user}`;
 const bye = (user) => `Bye, ${user}`;
-console.log(say('John', hi))
-console.log(say('John', bye))
+
+console.log(say('Max', hi))
+console.log(say('J-Lo', bye))
 
 
 
 
+const choose = function (name, action) {
+    return action(name)
+}
+
+const like = (guest) => `${guest} liked`;
+const dislike = function (guest) {
+    return `${guest} disliked`
+}
+
+console.log(choose('Max', like));
+console.log(choose('J-Lo', dislike));
+
+
+
+const write = function (message, toDo) {
+    return toDo(message);
+}
+
+
+
+const ask = function (text) {
+    return `${text} : yes or no?`
+}
+
+// const answer = function (text) {
+//     return text
+// }
+
+// console.log(write('Like coffee', ask));
+// console.log(write('Like filter coffee', ask));
+// console.log(write('Like tea', ask));
+
+// ?----------------------------------------------------------------------
+
+// Это ladder(лестница) – объект, который позволяет подниматься вверх и спускаться:
+
+let ladder = {
+    step: 5,
+    up() {
+        this.step++;
+        return this
+
+    },
+    down() {
+        this.step--;
+        return this
+
+    },
+    showStep: function () { // показывает текущую ступеньку
+        console.log(this.step);
+        return this
+
+    }
+};
+// Теперь, если нам нужно сделать несколько последовательных вызовов, мы можем выполнить это так:
+// ladder.up();
+// ladder.up();
+// ladder.down();
+// ladder.showStep(); // 1
+// // Измените код методов up, down и showStep таким образом, чтобы их вызов можно было сделать по цепочке, например так:
+// ladder.up().up().down().up().up().down().showStep();
+
+
+
+// ? TASK 2--------------------------------------
+
+// function askPassword(ok, fail) {
+//     let password = prompt("Password?", '');
+//     if (password == "rockstar") ok();
+//     else fail();
+// }
+// let user = {
+//     name: 'Вася',
+//     loginOk() {
+//         alert(`${this.name} logged in`);
+//     },
+//     loginFail() {
+//         alert(`${this.name} failed to log in`);
+//     },
+// };
+
+
+// askPassword(user.loginOk.bind(user), user.loginFail.bind(user));
+
+// __________________________________________________
+
+// ? TASK 3--------------------------------------------
+
+// Дан массив с числами(Написать самим).Ваша ф - я возвращает среднее арифметическое его элементов
+
+const whoIsAverage = function (array) {
+    let sum = 0;
+
+    for (let i = 0; i < array.length; i++) {
+        sum += array[i]
+    }
+    return sum / array.length;
+}
+console.log(whoIsAverage([28, 18, 8, 38]));
+// _____________________________________________________
+// _____________________________________________________
+
+
+// ? TASK 4-----------------------------------------------------------
+// Напишите функцию f, которая будет обёрткой вокруг другой функции g.
+// Функция f обрабатывает первый аргумент сама,
+// а остальные аргументы передаёт в функцию g, сколько бы их ни было.
+Например:
+function f() { /* ваш код */ }
+function g(a, b, c) {
+    alert(a + b + (c || 0));
+}
+f("тест", 1, 2); // f выведет "тест", дальше g посчитает сумму "3"
+f("тест2", 1, 2, 3); // f выведет "тест2", дальше g посчитает сумму "6"
+// Код функции f не должен зависеть от количества аргументов.
+
+const f = function () {
+
+}
+
+const g = function (a, b, c)
+
+
+
+
+
+
+
+// ___________________________________________________________________
+// ___________________________________________________________________
+
+
+
+// ? TASK 5 ------------------------------------------------------------
